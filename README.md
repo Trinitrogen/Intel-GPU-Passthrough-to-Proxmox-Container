@@ -31,4 +31,5 @@ dpkg -i ~/neo/intel-gmmlib_21.3.3_amd64.deb
 dpkg -i ~/neo/intel-igc-core_1.0.9441_amd64.deb
 dpkg -i ~/neo/intel-igc-opencl_1.0.9441_amd64.deb
 dpkg -i ~/neo/intel-opencl-icd_21.49.21786_amd64.deb
+apt install intel-gpu-tools
 ```
