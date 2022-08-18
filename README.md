@@ -36,4 +36,4 @@ dpkg -i ~/neo/intel-opencl-icd_21.49.21786_amd64.deb
 ```
 apt install intel-gpu-tools
 apt install vainfo
-'''
+```
