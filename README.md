@@ -1,7 +1,8 @@
 # Intel-GPU-Passthrough-to-Proxmox-Container
 ## Steps taken to passthrough Intel iGPU to an Ubuntu Container on Proxmox 7
 
-After a recent in place upgrade of Proxmox 6 to Proxmox 7, my hardware based transcoding within Plex no longer functioned. I took the opprotunity to lifecycle my old container into a new one, and following these steps I was able to get hardware transcoding. 
+After a recent in place upgrade of Proxmox 6 to Proxmox 7, my hardware based transcoding within Plex no longer functioned. ~~I took the opprotunity to lifecycle my old container into a new one, and following these steps I was able to get hardware transcoding.~~
+I was able to get my previous container working with these steps, allowing me to skip step 3
 
 1. One the proxmox hosts BIOS, enable intel integrated graphics and disable IOMMU
 2. In the command line of the host, run `ls -l /dev/dri` which should have something resembling the following output
@@ -20,7 +21,7 @@ lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
 lxc.mount.entry: /dev/fb0 dev/fb0 none bind,optional,create=file
 ```
 4. Power machine back up and update `apt update && apt dist-upgrade -y`
-5. Install the intel drivers into the container
+5. Install the intel drivers into the container. I used the below versions, you may want to get more [recent drivers](https://github.com/intel/compute-runtime/releases)
 ```
 mkdir ~/neo
 wget https://github.com/intel/compute-runtime/releases/download/21.49.21786/intel-gmmlib_21.3.3_amd64.deb -P ~/neo
